@@ -12,13 +12,45 @@ class AccountSeeder extends Seeder
      */
     public function run()
     {
-		Account::create(array(
-			'social_media' => 'twitter',
-			'consumer_key' => 'Dsmj7TH879HnWAA6n4aug',
-			'consumer_secret' => 'Wya4BuwIjGn5MJLbYcH3FqGjJhUmo63eSAu1jZ4fZk',
-			'access_token' => '2601075918-HQ1qskrm2bWAxQHZZR8JxURTe3YB5sGePn37Jdq',
+        Account::create(array(
+            'social_media' => 'twitter',
+            'consumer_key' => 'Dsmj7TH879HnWAA6n4aug',
+            'consumer_secret' => 'Wya4BuwIjGn5MJLbYcH3FqGjJhUmo63eSAu1jZ4fZk',
+            'access_token' => '2601075918-HQ1qskrm2bWAxQHZZR8JxURTe3YB5sGePn37Jdq',
             'access_token_secret' => 'vWNxaeRKUBObSb6akqprebqL5KmLh6sGqsds0clE3m4BF',
-			'use_count' => '0'
-		));
+            'use_count' => '0'
+        ));
+        Account::create(array(
+            'social_media' => 'twitter',
+            'consumer_key' => 'Dsmj7TH879HnWAA6n4aug',
+            'consumer_secret' => 'Wya4BuwIjGn5MJLbYcH3FqGjJhUmo63eSAu1jZ4fZk',
+            'access_token' => 'qweqweqweqweqwe',
+            'access_token_secret' => 'qweqweqweqweqwe',
+            'use_count' => '0'
+        ));
+        Account::create(array(
+            'social_media' => 'twitter',
+            'consumer_key' => 'Dsmj7TH879HnWAA6n4aug',
+            'consumer_secret' => 'Wya4BuwIjGn5MJLbYcH3FqGjJhUmo63eSAu1jZ4fZk',
+            'access_token' => 'asdasdasdasdasd',
+            'access_token_secret' => 'asdasdasdasdasd',
+            'use_count' => '0'
+        ));
+        Account::create(array(
+            'social_media' => 'twitter',
+            'consumer_key' => 'Dsmj7TH879HnWAA6n4aug',
+            'consumer_secret' => 'Wya4BuwIjGn5MJLbYcH3FqGjJhUmo63eSAu1jZ4fZk',
+            'access_token' => 'zxczxczxczxczxc',
+            'access_token_secret' => 'zxczxczxczxczxc',
+            'use_count' => '0'
+        ));
+        Account::create(array(
+            'social_media' => 'twitter',
+            'consumer_key' => 'Dsmj7TH879HnWAA6n4aug',
+            'consumer_secret' => 'Wya4BuwIjGn5MJLbYcH3FqGjJhUmo63eSAu1jZ4fZk',
+            'access_token' => '123123123123123',
+            'access_token_secret' => '123123123123123',
+            'use_count' => '0'
+        ));
     }
 }

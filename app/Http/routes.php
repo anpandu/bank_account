@@ -21,4 +21,5 @@ Route::get('account/cancel/{id}', 'AccountController@cancel');
 
 Route::group(['prefix' => 'gui'], function(){
 	Route::get('/', 'GuiController@index');
+	Route::get('/create', 'GuiController@create');
 });

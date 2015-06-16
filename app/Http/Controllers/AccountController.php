@@ -39,6 +39,9 @@ class AccountController extends Controller {
     {
         $account = new Account(Request::all());
         if ($account->save()) {
+            $params = Request::all();
+            if (isset($params['_redirect']))
+                return redirect($params['_redirect']);
             return $account;
         } else
         throw new CrudException('account:store');

@@ -10,7 +10,7 @@ use App\Exceptions\CrudException;
 class GuiController extends Controller {
 
     /**
-    * Display a listing of the Account.
+    * 
     *
     * @return Response
     */
@@ -18,6 +18,16 @@ class GuiController extends Controller {
     {
         $accounts = Account::all();
         return view('gui.index', ['accounts' => $accounts]);
+    }
+
+    /**
+    * 
+    *
+    * @return Response
+    */
+    public function create()
+    {
+        return view('gui.create');
     }
 
 }
