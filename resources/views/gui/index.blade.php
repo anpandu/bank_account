@@ -52,6 +52,10 @@
 								<td>Cancel</td>
 								<td>bankaccount.dev/account/cancel/1</td>
 							</tr>
+							<tr>
+								<td>Fast Use</td>
+								<td>bankaccount.dev/account/fastuse</td>
+							</tr>
 						</table>
 					</div>
 				</div>
