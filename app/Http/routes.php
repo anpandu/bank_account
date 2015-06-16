@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::resource('account', 'AccountController');
+Route::get('account/use/{id}', 'AccountController@use_one');
+Route::get('account/cancel/{id}', 'AccountController@cancel');

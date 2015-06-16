@@ -104,6 +104,32 @@ class AccountController extends Controller {
         throw new CrudException('account:destroy');
     }
 
+    /**
+    * 
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function use_one($id)
+    {
+        $acc = Account::find($id);
+        $result = $acc->useOne();
+        return $result;
+    }
+
+    /**
+    * 
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function cancel($id)
+    {
+        $acc = Account::find($id);
+        $result = $acc->cancel();
+        return $result;
+    }
+
 }
 
 ?>

@@ -148,4 +148,46 @@ class AccountCtrlTest extends TestCase {
 		}
 	}
 
+	public function testUse()
+	{
+		// tes pemanggilan use sukses
+		$use_count = $this->obj->use_count;
+		$response = $this->call('GET', '/'.self::$endpoint.'/use/'.$this->obj->id);
+		$this->assertEquals(200, $response->getStatusCode());
+
+		// tes hasil return adalah JSON
+		$result = $response->getOriginalContent();
+		$this->assertTrue($this->isStringJson($result));
+		$obj2 = json_decode($result, true);
+
+		foreach ($obj2 as $key => $val) {
+			if ($key=='use_count')
+				$this->assertEquals($val, $use_count+1);
+			else
+			if (isset($key, $this->obj)&&($key!='created_at')&&($key!='updated_at'))
+				$this->assertEquals($val, $this->obj->{$key});
+		}
+	}
+
+	public function testCancel()
+	{
+		// tes pemanggilan cancel sukses
+		$use_count = $this->obj->use_count;
+		$response = $this->call('GET', '/'.self::$endpoint.'/cancel/'.$this->obj->id);
+		$this->assertEquals(200, $response->getStatusCode());
+
+		// tes hasil return adalah JSON
+		$result = $response->getOriginalContent();
+		$this->assertTrue($this->isStringJson($result));
+		$obj2 = json_decode($result, true);
+
+		foreach ($obj2 as $key => $val) {
+			if ($key=='use_count')
+				$this->assertEquals($val, $use_count-1);
+			else
+			if (isset($key, $this->obj)&&($key!='created_at')&&($key!='updated_at'))
+				$this->assertEquals($val, $this->obj->{$key});
+		}
+	}
+
 }
