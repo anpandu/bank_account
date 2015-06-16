@@ -102,6 +102,9 @@ class AccountController extends Controller {
         $account = Account::find($id);
         if ($account) {
             $account->delete();
+            $params = Request::all();
+            if (isset($params['_redirect']))
+                return redirect($params['_redirect']);
             return $account;
         }
         throw new CrudException('account:destroy');

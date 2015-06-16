@@ -15,6 +15,7 @@
 								<td>social_media</td>
 								<td>access_token</td>
 								<td>access_token_secret</td>
+								<td></td>
 							</tr>
 							@foreach ($accounts as $account)
 								<tr>
@@ -23,6 +24,15 @@
 									<td>{{$account->social_media}}</td>
 									<td>{{$account->access_token}}</td>
 									<td>{{$account->access_token_secret}}</td>
+									<td>
+										<form method="POST" action="{{url('/account').'/'.$account->id}}">
+											<input name="_method" type="hidden" value="DELETE">
+											<input name="_redirect" type="hidden" class="form-control" id="" placeholder="" value="gui">
+											<a href="#" onclick="$(this).closest('form').submit()">
+												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+											</a>
+										</form>
+									</td>
 								</tr>
 							@endforeach 
 						</table>
