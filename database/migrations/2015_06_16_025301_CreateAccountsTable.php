@@ -19,6 +19,7 @@ class CreateAccountsTable extends Migration
             $table->string('consumer_secret', 64);
             $table->string('access_token', 64);
             $table->string('access_token_secret', 64);
+            $table->integer('use_count')->unsigned();
             $table->timestamps();
         });
     }

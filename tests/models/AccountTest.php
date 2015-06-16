@@ -21,20 +21,62 @@ class AccountTest extends TestCase {
 	 */
 	public function testAdd()
 	{
-		$obj = new Account;
-		$obj->social_media = 'test_social_media';
-		$obj->consumer_key = 'test_consumer_key';
-		$obj->consumer_secret = 'test_consumer_secret';
-		$obj->access_token = 'test_access_token';
-		$obj->access_token_secret = 'test_access_token_secret';
-		$saved = $obj->save();
+		$acc = new Account;
+		$acc->social_media = 'test_social_media';
+		$acc->consumer_key = 'test_consumer_key';
+		$acc->consumer_secret = 'test_consumer_secret';
+		$acc->access_token = 'test_access_token';
+		$acc->access_token_secret = 'test_access_token_secret';
+		$acc->use_count = 0;
+		$saved = $acc->save();
 
 		$this->assertTrue($saved);
-		if ($saved) {
-			$obj_2 = Account::find($obj->id);
-			if ($obj_2 !== null) {
-				$this->assertEquals($obj, $obj_2);
-			}
+
+		$acc_2 = Account::find($acc->id);
+		if ($acc_2 !== null) {
+			$this->assertEquals($acc, $acc_2);
+		}
+	}
+
+	/**
+	 * Tes memakai Account
+	 */
+	public function testUseOne()
+	{
+		$acc = new Account;
+		$acc->use_count = 0;
+		$saved = $acc->save();
+		$this->assertTrue($saved);
+
+		$use_count = $acc->use_count;
+		$acc2 = $acc->useOne();
+		foreach ($acc2->attributesToArray() as $key => $val) {
+			if ($key=='use_count')
+				$this->assertEquals($val, $use_count+1);
+			else
+			if (isset($key, $acc)&&($key!='created_at')&&($key!='updated_at'))
+				$this->assertEquals($val, $acc->{$key});
+		}
+	}
+
+	/**
+	 * Tes membatalkan Account
+	 */
+	public function testCancel()
+	{
+		$acc = new Account;
+		$acc->use_count = 0;
+		$saved = $acc->save();
+		$this->assertTrue($saved);
+
+		$use_count = $acc->use_count;
+		$acc2 = $acc->cancel();
+		foreach ($acc2->attributesToArray() as $key => $val) {
+			if ($key=='use_count')
+				$this->assertEquals($val, $use_count-1);
+			else
+			if (isset($key, $acc)&&($key!='created_at')&&($key!='updated_at'))
+				$this->assertEquals($val, $acc->{$key});
 		}
 	}
 

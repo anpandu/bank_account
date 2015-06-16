@@ -27,6 +27,7 @@ class AccountCtrlTest extends TestCase {
 		$obj->consumer_secret = 'test_consumer_secret';
 		$obj->access_token = 'test_access_token';
 		$obj->access_token_secret = 'test_access_token_secret';
+		$obj->use_count = 0;
 		$obj->save();
 		return $obj;
 	}
