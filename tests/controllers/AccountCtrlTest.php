@@ -190,4 +190,18 @@ class AccountCtrlTest extends TestCase {
 		}
 	}
 
+	public function testFastUse()
+	{
+		// tes pemanggilan fast use sukses
+		$response = $this->call('GET', '/'.self::$endpoint.'/fastuse');
+		$this->assertEquals(200, $response->getStatusCode());
+
+		// tes hasil return adalah JSON
+		$result = $response->getOriginalContent();
+		$this->assertTrue($this->isStringJson($result));
+		$obj2 = json_decode($result);
+
+		$this->assertEquals(1, $obj2->use_count);
+	}
+
 }

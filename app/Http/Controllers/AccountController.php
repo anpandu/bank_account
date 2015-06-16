@@ -136,6 +136,19 @@ class AccountController extends Controller {
         return $result;
     }
 
+    /**
+    * 
+    *
+    * @param  int  $id
+    * @return Response
+    */
+    public function fastuse()
+    {
+        $acc = Account::findAvailable();
+        $result = $acc->useOne();
+        return $result;
+    }
+
 }
 
 ?>

@@ -80,4 +80,20 @@ class AccountTest extends TestCase {
 		}
 	}
 
+	/**
+	 * Tes memakai Account
+	 */
+	public function testFindAvailable()
+	{
+		for ($i=0; $i < 5; $i++) { 
+			$acc = new Account;
+			$acc->use_count = $i;
+			$saved = $acc->save();
+			$this->assertTrue($saved);
+		}
+
+		$acc2 = Account::findAvailable();
+		$this->assertEquals(0, $acc2->use_count);
+	}
+
 }

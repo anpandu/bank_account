@@ -33,4 +33,14 @@ class Account extends Model
         $this->save();
         return $this;
     }
+
+    public static function findAvailable()
+    {
+        $accounts = Account::all();
+        $accounts->sortBy(function($x){
+            return $x->use_count;
+        });
+        $a = $accounts->first();
+        return $a;
+    }
 }
