@@ -12,9 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('gui');
 });
 
 Route::resource('account', 'AccountController');
 Route::get('account/use/{id}', 'AccountController@use_one');
 Route::get('account/cancel/{id}', 'AccountController@cancel');
+
+Route::group(['prefix' => 'gui'], function(){
+	Route::get('/', 'GuiController@index');
+});
