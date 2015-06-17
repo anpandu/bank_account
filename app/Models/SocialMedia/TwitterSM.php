@@ -64,7 +64,7 @@ class TwitterSM {
 		Config::set('ttwitter.ACCESS_TOKEN_SECRET', $reqtok['oauth_token_secret']);
 
 		$result = Twitter::getAccessToken($params['oauth_verifier']);
-
+		
 		return $result;
 	}
 

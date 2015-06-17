@@ -10,6 +10,20 @@
 					<form method="POST" action="{{url('/account')}}" class="form-horizontal" id="form_user">
 
 						<div class="form-group">
+							<label for="input_user_id" class="col-sm-3 control-label">User ID</label>
+							<div class="col-sm-9">
+								<input name="user_id" type="text" class="form-control" id="input_user_id" placeholder="">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="input_screen_name" class="col-sm-3 control-label">Screen Name</label>
+							<div class="col-sm-9">
+								<input name="screen_name" type="text" class="form-control" id="input_screen_name" placeholder="">
+							</div>
+						</div>
+
+						<div class="form-group">
 							<label for="input_consumer_key" class="col-sm-3 control-label">Consumer Key</label>
 							<div class="col-sm-9">
 								<input name="consumer_key" type="text" class="form-control" id="input_consumer_key" placeholder="">

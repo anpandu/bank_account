@@ -41,6 +41,8 @@ class TwitterAuthController extends Controller {
 
         $access_token = TwitterSM::mirror($p);
 
+        $params['user_id'] = $access_token['user_id'];
+        $params['screen_name'] = $access_token['screen_name'];
         $params['social_media'] = 'twitter';
         $params['consumer_key'] = Config::get('ttwitter.CONSUMER_KEY');
         $params['consumer_secret'] = Config::get('ttwitter.CONSUMER_SECRET');
@@ -48,13 +50,17 @@ class TwitterAuthController extends Controller {
         $params['access_token_secret'] = $access_token['oauth_token_secret'];
         $params['_redirect'] = 'gui';
 
-        $account = new Account($params);
-        if ($account->save()) {
-            if (isset($params['_redirect']))
-                return redirect($params['_redirect']);
-            return $account;
-        } else
-        throw new CrudException('account:store');
+        try {
+            $account = new Account($params);
+            if ($account->save()) {
+                if (isset($params['_redirect']))
+                    return redirect($params['_redirect']);
+                return $account;
+            } else
+                throw new CrudException('account:store');
+        } catch (\Exception $e) {
+            return redirect('gui')->with(['message' => 'akun yang anda masukkan sudah ada']);
+        }
     }
 
 }

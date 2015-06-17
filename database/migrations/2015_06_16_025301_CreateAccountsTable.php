@@ -14,6 +14,8 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('user_id', 64)->unique();
+            $table->string('screen_name', 64);
             $table->string('social_media', 64);
             $table->string('consumer_key', 64);
             $table->string('consumer_secret', 64);

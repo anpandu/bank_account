@@ -20,7 +20,8 @@ class GuiController extends Controller {
     public function index()
     {
         $accounts = Account::all();
-        return view('gui.index', ['accounts' => $accounts]);
+        $message = Session::get('message');
+        return view('gui.index', ['accounts' => $accounts, 'message' => $message]);
     }
 
     /**

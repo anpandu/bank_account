@@ -36,7 +36,11 @@ class Handler extends ExceptionHandler {
 	 */
 	public function render($request, Exception $e)
 	{
-		return parent::render($request, $e);
+		// return parent::render($request, $e);
+		if ($e instanceof QueryException)
+			return response($e->getMessage(), 500);
+		else
+			return response($e->getMessage(), 500);
 	}
 
 }

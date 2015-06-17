@@ -22,6 +22,8 @@ class AccountCtrlTest extends TestCase {
 	private function setUpObj() 
 	{
 		$obj = new Account;
+		$obj->user_id = rand(0, 1000000);
+		$obj->screen_name = 'test_screen_name';
 		$obj->social_media = 'test_social_media';
 		$obj->consumer_key = 'test_consumer_key';
 		$obj->consumer_secret = 'test_consumer_secret';
@@ -83,6 +85,7 @@ class AccountCtrlTest extends TestCase {
 	{
 		// tes pemanggilan store sukses
 		$params = $this->setUpParams();
+		$params['user_id'] = rand(0, 1000000);
 		$response = $this->call('POST', '/'.self::$endpoint, $params);
 		$this->assertEquals(200, $response->getStatusCode());
 		

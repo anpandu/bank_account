@@ -18,7 +18,7 @@ class Account extends Model
      *
      * @var array
      */
-    protected $fillable = ['social_media', 'consumer_key', 'consumer_secret', 'access_token', 'access_token_secret', 'use_count'];
+    protected $fillable = ['user_id', 'screen_name', 'social_media', 'consumer_key', 'consumer_secret', 'access_token', 'access_token_secret', 'use_count'];
 
     public function useOne()
     {
