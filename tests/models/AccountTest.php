@@ -25,6 +25,7 @@ class AccountTest extends TestCase {
 		$acc->user_id = rand(0, 10000000);
 		$acc->screen_name = 'test_screen_name';
 		$acc->social_media = 'test_social_media';
+		$acc->active = true;
 		$acc->consumer_key = 'test_consumer_key';
 		$acc->consumer_secret = 'test_consumer_secret';
 		$acc->access_token = 'test_access_token';
@@ -90,6 +91,7 @@ class AccountTest extends TestCase {
 		for ($i=0; $i < 5; $i++) { 
 			$acc = new Account;
 			$acc->user_id = rand(0, 10000000);
+			$acc->active = true;
 			$acc->use_count = $i;
 			$saved = $acc->save();
 			$this->assertTrue($saved);

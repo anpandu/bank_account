@@ -18,7 +18,7 @@ class Account extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'screen_name', 'social_media', 'consumer_key', 'consumer_secret', 'access_token', 'access_token_secret', 'use_count'];
+    protected $fillable = ['user_id', 'screen_name', 'social_media', 'active', 'consumer_key', 'consumer_secret', 'access_token', 'access_token_secret', 'use_count'];
 
     public function useOne()
     {
@@ -36,7 +36,7 @@ class Account extends Model
 
     public static function findAvailable()
     {
-        $accounts = Account::all();
+        $accounts = Account::where('active', '=', '1')->get();
         $accounts->sortBy(function($x){
             return $x->use_count;
         });

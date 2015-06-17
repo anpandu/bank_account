@@ -16,6 +16,7 @@ class AccountSeeder extends Seeder
             'user_id' => '111',
             'screen_name' => 'kya',
             'social_media' => 'twitter',
+            'active' => true,
             'consumer_key' => 'Dsmj7TH879HnWAA6n4aug',
             'consumer_secret' => 'Wya4BuwIjGn5MJLbYcH3FqGjJhUmo63eSAu1jZ4fZk',
             'access_token' => 'kyakyakyakyakya',

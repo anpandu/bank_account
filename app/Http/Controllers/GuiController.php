@@ -40,6 +40,17 @@ class GuiController extends Controller {
         return view('gui.create');
     }
 
+    /**
+    * 
+    *
+    * @return Response
+    */
+    public function check()
+    {
+        TwitterSM::checkAll();
+        return Redirect::to('gui');
+    }
+
 }
 
 ?>

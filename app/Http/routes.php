@@ -23,6 +23,7 @@ Route::resource('account', 'AccountController');
 Route::group(['prefix' => 'gui'], function(){
 	Route::get('/', 'GuiController@index');
 	Route::get('/create', 'GuiController@create');
+	Route::get('/check', 'GuiController@check');
 });
 
 Route::group(['prefix' => 'auth_twitter'], function(){

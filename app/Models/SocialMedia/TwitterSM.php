@@ -2,9 +2,11 @@
 
 namespace App\Models\SocialMedia;
 
+use Redirect;
 use Config;
 use Twitter;
 use Session;
+use App\Models\Account;
 
 /**
 * TwitterSM adalah class penghubung social media untuk twitter
@@ -66,6 +68,32 @@ class TwitterSM {
 		$result = Twitter::getAccessToken($params['oauth_verifier']);
 		
 		return $result;
+	}
+
+	/**
+	* mengecheck validasi akun
+	*
+	* @param  int  $id
+	* @return Response
+	*/
+	public static function checkAll()
+	{
+		$accounts = Account::all();
+		foreach ($accounts as $account) {
+			$conf = [
+				'token' => $account->access_token,
+				'secret' => $account->access_token_secret
+			];
+			Twitter::reconfig($conf);
+			try {
+				$profile = Twitter::query('account/verify_credentials', 'GET');
+			} catch (\Exception $e) {
+				$a = Account::where('user_id', '=', $account->user_id)->get()->first();
+				$a->active = false;
+				$a->save();
+			}
+		}
+		return Redirect::to('gui');
 	}
 
 }
