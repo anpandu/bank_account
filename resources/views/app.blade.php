@@ -35,15 +35,11 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/gui') }}">Index</a></li>
+					<li><a href="{{ url('/auth_twitter/connect') . '?url=' . url('auth_twitter/mirror') }}">Connect Twitter</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/gui/create') }}">Create Account</a></li>
-				</ul>
-
-				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/auth_twitter/connect') . '?url=' . url('auth_twitter/mirror') }}">Connect Account</a></li>
+					<li><a href="{{ url('/gui/create') }}">Manual Create Account</a></li>
 				</ul>
 
 				<!-- <ul class="nav navbar-nav navbar-right">

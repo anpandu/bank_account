@@ -19,9 +19,15 @@ class GuiController extends Controller {
     */
     public function index()
     {
-        $accounts = Account::all();
+        $twitter_accounts = Account::where('social_media', '=', 'twitter')->get();
+        $facebook_accounts = Account::where('social_media', '=', 'facebook')->get();
         $message = Session::get('message');
-        return view('gui.index', ['accounts' => $accounts, 'message' => $message]);
+        $params = [
+            'facebook_accounts' => $facebook_accounts, 
+            'twitter_accounts' => $twitter_accounts, 
+            'message' => $message
+        ];
+        return view('gui.index', $params);
     }
 
     /**
