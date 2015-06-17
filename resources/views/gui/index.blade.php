@@ -53,15 +53,27 @@
 						<table class="table table-condensed table-hover table-bordered">
 							<tr>
 								<td>Use</td>
-								<td>bankaccount.dev/account/use/1</td>
+								<td>
+									<a target='_blank' href="{{url('/account')}}/use/1">
+										{{url('/account')}}/use/1
+									</a>
+								</td>
 							</tr>
 							<tr>
 								<td>Cancel</td>
-								<td>bankaccount.dev/account/cancel/1</td>
+								<td>
+									<a target='_blank' href="{{url('/account')}}/cancel/1">
+										{{url('/account')}}/cancel/1
+									</a>
+								</td>
 							</tr>
 							<tr>
 								<td>Fast Use</td>
-								<td>bankaccount.dev/account/fastuse</td>
+								<td>
+									<a target='_blank' href="{{url('/account')}}/fastuse">
+										{{url('/account')}}/fastuse
+									</a>
+								</td>
 							</tr>
 						</table>
 					</div>
