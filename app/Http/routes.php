@@ -24,3 +24,8 @@ Route::group(['prefix' => 'gui'], function(){
 	Route::get('/', 'GuiController@index');
 	Route::get('/create', 'GuiController@create');
 });
+
+Route::group(['prefix' => 'auth_twitter'], function(){
+	Route::get('/connect', 'TwitterAuthController@connect');
+	Route::get('/mirror', 'TwitterAuthController@mirror');
+});

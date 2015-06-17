@@ -42,6 +42,10 @@
 					<li><a href="{{ url('/gui/create') }}">Create Account</a></li>
 				</ul>
 
+				<ul class="nav navbar-nav">
+					<li><a href="{{ url('/auth_twitter/connect') . '?url=' . url('auth_twitter/mirror') }}">Connect Account</a></li>
+				</ul>
+
 				<!-- <ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
 						<li><a href="{{ url('/auth/login') }}">Login</a></li>
