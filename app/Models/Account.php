@@ -34,9 +34,9 @@ class Account extends Model
         return $this;
     }
 
-    public static function findAvailable()
+    public static function findAvailable($social_media)
     {
-        $accounts = Account::where('active', '=', '1')->get();
+        $accounts = Account::where('active', '=', '1')->where('social_media', '=', $social_media)->get();
         $accounts->sortBy(function($x){
             return $x->use_count;
         });

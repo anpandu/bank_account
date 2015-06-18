@@ -30,3 +30,8 @@ Route::group(['prefix' => 'auth_twitter'], function(){
 	Route::get('/connect', 'TwitterAuthController@connect');
 	Route::get('/mirror', 'TwitterAuthController@mirror');
 });
+
+Route::group(['prefix' => 'auth_facebook'], function(){
+	Route::get('/connect', 'FacebookAuthController@connect');
+	Route::get('/mirror', 'FacebookAuthController@mirror');
+});

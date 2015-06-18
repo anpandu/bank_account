@@ -8,6 +8,7 @@ use Redirect;
 use App\Models\Account;
 use App\Http\Controllers\Controller;
 use App\Models\SocialMedia\TwitterSM;
+use App\Models\SocialMedia\FacebookSM;
 use App\Exceptions\CrudException;
 
 class GuiController extends Controller {
@@ -48,6 +49,7 @@ class GuiController extends Controller {
     public function check()
     {
         TwitterSM::checkAll();
+        FacebookSM::checkAll();
         return Redirect::to('gui');
     }
 

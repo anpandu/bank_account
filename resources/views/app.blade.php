@@ -43,6 +43,10 @@
 				</ul>
 
 				<ul class="nav navbar-nav">
+					<li><a href="{{ url('/auth_facebook/connect') . '?url=' . url('auth_facebook/mirror') }}">Connect Facebook</a></li>
+				</ul>
+
+				<ul class="nav navbar-nav">
 					<li><a href="{{ url('/gui/create') }}">Manual Create Account</a></li>
 				</ul>
 

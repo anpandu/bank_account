@@ -59,18 +59,18 @@
 								<tr>
 									<td>ID</td>
 									<td>Use Count</td>
-									<td>Username</td>
+									<td>Active</td>
+									<td>Name</td>
 									<td>Access Token</td>
-									<td>Access Token Secret</td>
 									<td></td>
 								</tr>
 								@foreach ($facebook_accounts as $account)
 									<tr>
 										<td>{{$account->id}}</td>
 										<td>{{$account->use_count}}</td>
+										<td><span class="glyphicon glyphicon-{{($account->active) ? 'ok' : 'remove'}}" aria-hidden="true"></span></td>
 										<td>{{$account->screen_name}}</td>
 										<td>{{$account->access_token}}</td>
-										<td>{{$account->access_token_secret}}</td>
 										<td>
 											<form method="POST" action="{{url('/account').'/'.$account->id}}">
 												<input name="_method" type="hidden" value="DELETE">
@@ -110,7 +110,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td>Fast Use</td>
+								<td>Fast Use (twitter)</td>
 								<td>
 									<a target='_blank' href="{{url('/account')}}/fastuse">
 										{{url('/account')}}/fastuse

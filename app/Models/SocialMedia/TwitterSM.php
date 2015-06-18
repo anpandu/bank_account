@@ -78,7 +78,7 @@ class TwitterSM {
 	*/
 	public static function checkAll()
 	{
-		$accounts = Account::all();
+		$accounts = Account::where('social_media', '=', 'twitter')->get();
 		foreach ($accounts as $account) {
 			$conf = [
 				'token' => $account->access_token,
