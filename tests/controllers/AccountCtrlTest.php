@@ -24,7 +24,7 @@ class AccountCtrlTest extends TestCase {
 		$obj = new Account;
 		$obj->user_id = rand(0, 1000000);
 		$obj->screen_name = 'test_screen_name';
-		$obj->social_media = 'test_social_media';
+		$obj->social_media = 'twitter';
 		$obj->active = true;
 		$obj->consumer_key = 'test_consumer_key';
 		$obj->consumer_secret = 'test_consumer_secret';

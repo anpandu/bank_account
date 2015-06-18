@@ -145,8 +145,11 @@ class AccountController extends Controller {
     public function fastuse()
     {
         $acc = Account::findAvailable('twitter');
-        $result = $acc->useOne();
-        return $result;
+        if ($acc) {
+            $result = $acc->useOne();
+            return $result;
+        }
+        return null;
     }
 
 }
