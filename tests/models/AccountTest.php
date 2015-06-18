@@ -91,6 +91,7 @@ class AccountTest extends TestCase {
 		for ($i=0; $i < 5; $i++) { 
 			$acc = new Account;
 			$acc->user_id = rand(0, 10000000);
+			$acc->social_media = 'twitter';
 			$acc->active = true;
 			$acc->use_count = $i;
 			$saved = $acc->save();
