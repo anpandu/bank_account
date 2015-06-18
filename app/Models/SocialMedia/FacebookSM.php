@@ -77,7 +77,7 @@ class FacebookSM {
 		$accounts = Account::where('social_media', '=', 'facebook')->get();
 		foreach ($accounts as $account) {
 			$response = json_decode(file_get_contents("https://graph.facebook.com/me?access_token=" .$account->access_token));
-			if (isset($response['error'])) {
+			if (isset($response->error)) {
 				$a = Account::where('user_id', '=', $account->user_id)->get()->first();
 				$a->active = false;
 				$a->save();
