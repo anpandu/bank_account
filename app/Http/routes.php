@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::get('account/use/{id}', 'AccountController@use_one');
 Route::get('account/cancel/{id}', 'AccountController@cancel');
-Route::get('account/fastuse', 'AccountController@fastuse');
+Route::get('account/fastuse/{social_media}', 'AccountController@fastuse');
 Route::resource('account', 'AccountController');
 
 Route::group(['prefix' => 'gui'], function(){

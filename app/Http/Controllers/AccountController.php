@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Request;
+use Exception;
 use App\Models\Account;
 use App\Http\Controllers\Controller;
 use App\Exceptions\CrudException;
@@ -142,9 +143,9 @@ class AccountController extends Controller {
     * @param  int  $id
     * @return Response
     */
-    public function fastuse()
+    public function fastuse($social_media)
     {
-        $acc = Account::findAvailable('twitter');
+        $acc = Account::findAvailable($social_media);
         if ($acc) {
             $result = $acc->useOne();
             return $result;

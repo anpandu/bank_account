@@ -112,8 +112,16 @@
 							<tr>
 								<td>Fast Use (twitter)</td>
 								<td>
-									<a target='_blank' href="{{url('/account')}}/fastuse">
-										{{url('/account')}}/fastuse
+									<a target='_blank' href="{{url('/account')}}/fastuse/twitter">
+										{{url('/account')}}/fastuse/twitter
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td>Fast Use (facebook)</td>
+								<td>
+									<a target='_blank' href="{{url('/account')}}/fastuse/facebook">
+										{{url('/account')}}/fastuse/facebook
 									</a>
 								</td>
 							</tr>
