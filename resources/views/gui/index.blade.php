@@ -31,7 +31,9 @@
 										<td>{{$account->id}}</td>
 										<td>{{$account->use_count}}</td>
 										<td><span class="glyphicon glyphicon-{{($account->active) ? 'ok' : 'remove'}}" aria-hidden="true"></span></td>
-										<td><img style="max-height:32px" src="{{$account->image}}"/></td>
+										<td>
+											<a target="_blank" href="{{$account->image}}"><img style="max-height:48px" src="{{$account->image}}"/></a>
+										</td>
 										<td>
 											<a target="_blank" href="http://twitter.com/{{$account->screen_name}}">{{$account->screen_name}}</a>
 										</td>
@@ -74,7 +76,8 @@
 										<td>{{$account->id}}</td>
 										<td>{{$account->use_count}}</td>
 										<td><span class="glyphicon glyphicon-{{($account->active) ? 'ok' : 'remove'}}" aria-hidden="true"></span></td>
-										<td><img style="max-height:32px" src="{{$account->image}}"/></td>
+										<td>
+											<a target="_blank" href="{{$account->image}}"><img style="max-height:48px" src="{{$account->image}}"/></a></td>
 										<td>
 											<a target="_blank" href="http://facebook.com/{{$account->user_id}}">{{$account->screen_name}}</a>
 										</td>
