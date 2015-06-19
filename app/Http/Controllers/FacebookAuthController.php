@@ -43,8 +43,8 @@ class FacebookAuthController extends Controller {
         $params['image'] = $access_token['image'];
         $params['social_media'] = 'facebook';
         $params['active'] = true;
-        $params['consumer_key'] = FacebookSM::$app_id;
-        $params['consumer_secret'] = FacebookSM::$app_secret;
+        $params['consumer_key'] = Config::get('ffacebook.APP_ID');
+        $params['consumer_secret'] = Config::get('ffacebook.APP_SECRET');
         $params['access_token'] = $access_token['access_token'];
         $params['access_token_secret'] = '';
         $params['_redirect'] = 'gui';

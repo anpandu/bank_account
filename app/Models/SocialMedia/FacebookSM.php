@@ -16,16 +16,15 @@ use Facebook\FacebookSession;
 */
 class FacebookSM {
 
-	public static $app_id = '458102387690960';
-	public static $app_secret = '2abfb333b4d8bb91a9d9c7f1540cc937';
-
 	/**
 	 * Mengeset App ID dan App Secret
 	 * @return void
 	 */
 	public static function setApp()
 	{
-		FacebookSession::setDefaultApplication(self::$app_id, self::$app_secret);
+		$ai = Config::get('ffacebook.APP_ID');
+		$as = Config::get('ffacebook.APP_SECRET');
+		FacebookSession::setDefaultApplication($ai, $as);
 	}
 
 	/**
