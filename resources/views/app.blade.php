@@ -35,7 +35,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/gui/check') }}">Check</a></li>
+					<li><a href="{{ url('/gui/check') }}">Update</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav">
@@ -46,9 +46,9 @@
 					<li><a href="{{ url('/auth_facebook/connect') . '?url=' . url('auth_facebook/mirror') }}">Connect Facebook</a></li>
 				</ul>
 
-				<ul class="nav navbar-nav">
+				<!-- <ul class="nav navbar-nav">
 					<li><a href="{{ url('/gui/create') }}">Manual Create Account</a></li>
-				</ul>
+				</ul> -->
 
 				<!-- <ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
