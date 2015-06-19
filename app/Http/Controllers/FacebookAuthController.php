@@ -40,6 +40,7 @@ class FacebookAuthController extends Controller {
 
         $params['user_id'] = $access_token['user_id'];
         $params['screen_name'] = $access_token['name'];
+        $params['image'] = $access_token['image'];
         $params['social_media'] = 'facebook';
         $params['active'] = true;
         $params['consumer_key'] = FacebookSM::$app_id;

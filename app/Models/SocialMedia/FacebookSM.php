@@ -55,11 +55,13 @@ class FacebookSM {
 			$access_token = $session->getAccessToken();
 			$long_access_token = $access_token->extend();
 			$user_id = $long_access_token->getInfo()->getId();
-			$response = json_decode(file_get_contents("https://graph.facebook.com/me?access_token=" .$long_access_token));
+			$name = json_decode(file_get_contents("https://graph.facebook.com/me?access_token=" .$long_access_token))->name;
+			$image = json_decode(file_get_contents("https://graph.facebook.com/me/picture?redirect=false&access_token=" .$long_access_token))->data->url;
 			$result = [
 				'access_token' => $long_access_token,
 				'user_id' => $user_id,
-				'name' => $response->name
+				'name' => $name,
+				'image' => $image
 			];
 			return $result;
 		} else

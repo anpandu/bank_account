@@ -16,12 +16,13 @@ class CreateAccountsTable extends Migration
             $table->increments('id');
             $table->string('user_id', 64)->unique();
             $table->string('screen_name', 64);
+            $table->text('image');
             $table->string('social_media', 64);
             $table->boolean('active');
             $table->string('consumer_key', 64);
             $table->string('consumer_secret', 64);
             $table->text('access_token');
-            $table->string('access_token_secret', 64);
+            $table->text('access_token_secret');
             $table->integer('use_count')->unsigned();
             $table->timestamps();
         });

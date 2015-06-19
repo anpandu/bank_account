@@ -43,6 +43,7 @@ class TwitterAuthController extends Controller {
 
         $params['user_id'] = $access_token['user_id'];
         $params['screen_name'] = $access_token['screen_name'];
+        $params['image'] = $access_token['image'];
         $params['social_media'] = 'twitter';
         $params['active'] = true;
         $params['consumer_key'] = Config::get('ttwitter.CONSUMER_KEY');

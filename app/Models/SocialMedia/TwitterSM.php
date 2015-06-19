@@ -43,7 +43,7 @@ class TwitterSM {
 		Config::set('ttwitter.ACCESS_TOKEN_SECRET', $reqtok['oauth_token_secret']);
 
 		$result = Twitter::getAccessToken($params['oauth_verifier']);
-		
+		$result['image'] = Twitter::query('account/verify_credentials', 'GET')->profile_image_url;
 		return $result;
 	}
 

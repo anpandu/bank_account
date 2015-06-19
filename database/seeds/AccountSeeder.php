@@ -15,6 +15,7 @@ class AccountSeeder extends Seeder
         Account::create(array(
             'user_id' => '111',
             'screen_name' => 'kya',
+            'image' => 'http://orig15.deviantart.net/0a6a/f/2012/024/2/4/super_kawaii_desu_desu_ne_nicolas_cage_by_oosterific-d4nhlp8.jpg',
             'social_media' => 'twitter',
             'active' => true,
             'consumer_key' => 'Dsmj7TH879HnWAA6n4aug',
