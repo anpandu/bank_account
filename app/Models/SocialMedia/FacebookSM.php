@@ -77,12 +77,17 @@ class FacebookSM {
 	{
 		$accounts = Account::where('social_media', '=', 'facebook')->get();
 		foreach ($accounts as $account) {
+			$a = Account::where('user_id', '=', $account->user_id)->get()->first();
 			$response = json_decode(file_get_contents("https://graph.facebook.com/me?access_token=" .$account->access_token));
 			if (isset($response->error)) {
-				$a = Account::where('user_id', '=', $account->user_id)->get()->first();
 				$a->active = false;
-				$a->save();
+			} else {
+				$name = json_decode(file_get_contents("https://graph.facebook.com/me?access_token=" .$account->access_token))->name;
+				$image = json_decode(file_get_contents("https://graph.facebook.com/me/picture?redirect=false&access_token=" .$account->access_token))->data->url;
+				$a->screen_name = $name;
+				$a->image = $image;
 			}
+			$a->save();
 		}
 		return Redirect::to('gui');
 	}

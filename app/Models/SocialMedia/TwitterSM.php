@@ -62,13 +62,16 @@ class TwitterSM {
 				'secret' => $account->access_token_secret
 			];
 			Twitter::reconfig($conf);
+
+			$a = Account::where('user_id', '=', $account->user_id)->get()->first();
 			try {
 				$profile = Twitter::query('account/verify_credentials', 'GET');
+				$a->screen_name = $profile->screen_name;
+				$a->image = $profile->profile_image_url;
 			} catch (\Exception $e) {
-				$a = Account::where('user_id', '=', $account->user_id)->get()->first();
 				$a->active = false;
-				$a->save();
 			}
+			$a->save();
 		}
 		return Redirect::to('gui');
 	}
