@@ -32,7 +32,9 @@
 										<td>{{$account->use_count}}</td>
 										<td><span class="glyphicon glyphicon-{{($account->active) ? 'ok' : 'remove'}}" aria-hidden="true"></span></td>
 										<td><img style="max-height:32px" src="{{$account->image}}"/></td>
-										<td>{{$account->screen_name}}</td>
+										<td>
+											<a target="_blank" href="http://twitter.com/{{$account->screen_name}}">{{$account->screen_name}}</a>
+										</td>
 										<td>{{$account->access_token}}</td>
 										<td>{{$account->access_token_secret}}</td>
 										<td>
@@ -73,7 +75,9 @@
 										<td>{{$account->use_count}}</td>
 										<td><span class="glyphicon glyphicon-{{($account->active) ? 'ok' : 'remove'}}" aria-hidden="true"></span></td>
 										<td><img style="max-height:32px" src="{{$account->image}}"/></td>
-										<td>{{$account->screen_name}}</td>
+										<td>
+											<a target="_blank" href="http://facebook.com/{{$account->user_id}}">{{$account->screen_name}}</a>
+										</td>
 										<td>
 											<textarea cols="66" rows="3">{{$account->access_token}}</textarea>
 										</td>
