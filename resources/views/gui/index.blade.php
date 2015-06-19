@@ -74,7 +74,9 @@
 										<td><span class="glyphicon glyphicon-{{($account->active) ? 'ok' : 'remove'}}" aria-hidden="true"></span></td>
 										<td><img style="max-height:32px" src="{{$account->image}}"/></td>
 										<td>{{$account->screen_name}}</td>
-										<td>{{$account->access_token}}</td>
+										<td>
+											<textarea cols="66" rows="3">{{$account->access_token}}</textarea>
+										</td>
 										<td>
 											<form method="POST" action="{{url('/account').'/'.$account->id}}">
 												<input name="_method" type="hidden" value="DELETE">
