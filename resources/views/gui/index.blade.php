@@ -82,7 +82,7 @@
 											<a target="_blank" href="http://facebook.com/{{$account->user_id}}">{{$account->screen_name}}</a>
 										</td>
 										<td>
-											<textarea cols="66" rows="3">{{$account->access_token}}</textarea>
+											<textarea cols="70" rows="3">{{$account->access_token}}</textarea>
 										</td>
 										<td>
 											<form method="POST" action="{{url('/account').'/'.$account->id}}">
