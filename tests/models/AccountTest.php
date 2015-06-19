@@ -25,6 +25,7 @@ class AccountTest extends TestCase {
 		$acc->user_id = rand(0, 10000000);
 		$acc->screen_name = 'test_screen_name';
 		$acc->social_media = 'twitter';
+		$acc->image = 'http://orig15.deviantart.net/0a6a/f/2012/024/2/4/super_kawaii_desu_desu_ne_nicolas_cage_by_oosterific-d4nhlp8.jpg';
 		$acc->active = true;
 		$acc->consumer_key = 'test_consumer_key';
 		$acc->consumer_secret = 'test_consumer_secret';

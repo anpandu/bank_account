@@ -25,6 +25,7 @@ class AccountCtrlTest extends TestCase {
 		$obj->user_id = rand(0, 1000000);
 		$obj->screen_name = 'test_screen_name';
 		$obj->social_media = 'twitter';
+		$obj->image = 'http://orig15.deviantart.net/0a6a/f/2012/024/2/4/super_kawaii_desu_desu_ne_nicolas_cage_by_oosterific-d4nhlp8.jpg';
 		$obj->active = true;
 		$obj->consumer_key = 'test_consumer_key';
 		$obj->consumer_secret = 'test_consumer_secret';
