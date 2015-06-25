@@ -39,7 +39,7 @@ class InstagramAuthController extends Controller {
     {
         $access_token = InstagramSM::mirror(Request::all());
         $access_token = json_decode(json_encode($access_token), true);
-
+        
         $params['user_id'] = $access_token['user']['id'];
         $params['screen_name'] = $access_token['user']['username'];
         $params['image'] = $access_token['user']['profile_picture'];
