@@ -9,6 +9,7 @@ use App\Models\Account;
 use App\Http\Controllers\Controller;
 use App\Models\SocialMedia\TwitterSM;
 use App\Models\SocialMedia\FacebookSM;
+use App\Models\SocialMedia\InstagramSM;
 use App\Exceptions\CrudException;
 
 class GuiController extends Controller {
@@ -52,6 +53,7 @@ class GuiController extends Controller {
     {
         TwitterSM::checkAll();
         FacebookSM::checkAll();
+        InstagramSM::checkAll();
         return Redirect::to('gui');
     }
 
