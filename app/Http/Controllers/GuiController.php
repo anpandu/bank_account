@@ -22,10 +22,12 @@ class GuiController extends Controller {
     {
         $twitter_accounts = Account::where('social_media', '=', 'twitter')->get();
         $facebook_accounts = Account::where('social_media', '=', 'facebook')->get();
+        $instagram_accounts = Account::where('social_media', '=', 'instagram')->get();
         $message = Session::get('message');
         $params = [
             'facebook_accounts' => $facebook_accounts, 
             'twitter_accounts' => $twitter_accounts, 
+            'instagram_accounts' => $instagram_accounts, 
             'message' => $message
         ];
         return view('gui.index', $params);

@@ -146,6 +146,7 @@ return [
 		'App\Providers\RouteServiceProvider',
     	
     	'Thujohn\Twitter\TwitterServiceProvider',
+    	'Vinkla\Instagram\InstagramServiceProvider',
 
 	],
 
@@ -196,6 +197,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 
 		'Twitter' => 'Thujohn\Twitter\Facades\Twitter',
+		'Instagram' => 'Vinkla\Instagram\Facades\Instagram'
 
 	],
 
