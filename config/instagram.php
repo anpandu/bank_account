@@ -38,8 +38,8 @@ return [
     'connections' => [
 
         'main' => [
-            'client_id' => 'f7f6b5607bc34991871776a1a3a8eef7',
-            'client_secret' => '027b269a685447eb9f7ba1ce9120e901',
+            'client_id' => env('IG_APP_ID', 'f7f6b5607bc34991871776a1a3a8eef7'),
+            'client_secret' => env('IG_APP_ID', '027b269a685447eb9f7ba1ce9120e901'),
             'callback_url' => 'http://bankaccount.dev/auth_instagram/mirror',
         ],
 
