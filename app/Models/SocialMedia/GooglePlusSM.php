@@ -65,9 +65,9 @@ class GooglePlusSM {
     		$google_service = OAuth::consumer('Google');
 			$google_service->getStorage()->storeAccessToken($google_service->service(), $token_interface);
 			
-			$response = json_decode(file_get_contents('https://www.googleapis.com/oauth2/v1/tokeninfo?access_token='.$token));			
+			$response = json_decode(@file_get_contents('https://www.googleapis.com/oauth2/v1/tokeninfo?access_token='.$token));			
 
-			if (isset($response->error)) {
+			if ($response==null||isset($response->error)) {
 				$a->active = false;
 			} else {
 				$data = json_decode($google_service->request('https://www.googleapis.com/oauth2/v1/userinfo'));
