@@ -147,6 +147,7 @@ return [
     	
     	'Thujohn\Twitter\TwitterServiceProvider',
     	'Vinkla\Instagram\InstagramServiceProvider',
+    	'Artdarek\OAuth\OAuthServiceProvider',
 
 	],
 
@@ -197,7 +198,8 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 
 		'Twitter' => 'Thujohn\Twitter\Facades\Twitter',
-		'Instagram' => 'Vinkla\Instagram\Facades\Instagram'
+		'Instagram' => 'Vinkla\Instagram\Facades\Instagram',
+	    'OAuth' => 'Artdarek\OAuth\Facade\OAuth',
 
 	],
 

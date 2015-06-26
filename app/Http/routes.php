@@ -40,3 +40,11 @@ Route::group(['prefix' => 'auth_instagram'], function(){
 	Route::get('/connect', 'InstagramAuthController@connect');
 	Route::get('/mirror', 'InstagramAuthController@mirror');
 });
+
+Route::group(['prefix' => 'auth_googleplus'], function(){
+	Route::get('/connect', 'GooglePlusAuthController@connect');
+	Route::get('/mirror', 'GooglePlusAuthController@mirror');
+});
+
+Route::get('/oauth2callback', function(){redirect()->route('auth_googleplus/mirror');});
+

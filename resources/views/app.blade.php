@@ -50,6 +50,10 @@
 					<li><a href="{{ url('/auth_instagram/connect') . '?url=' . url('auth_instagram/mirror') }}">Connect Instagram</a></li>
 				</ul>
 
+				<ul class="nav navbar-nav">
+					<li><a href="{{ url('/auth_googleplus/connect') . '?url=' . url('auth_googleplus/mirror') }}">Connect Google+</a></li>
+				</ul>
+
 				<!-- <ul class="nav navbar-nav">
 					<li><a href="{{ url('/gui/create') }}">Manual Create Account</a></li>
 				</ul> -->

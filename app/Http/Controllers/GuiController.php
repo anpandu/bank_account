@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Models\SocialMedia\TwitterSM;
 use App\Models\SocialMedia\FacebookSM;
 use App\Models\SocialMedia\InstagramSM;
+use App\Models\SocialMedia\GooglePlusSM;
 use App\Exceptions\CrudException;
 
 class GuiController extends Controller {
@@ -24,11 +25,13 @@ class GuiController extends Controller {
         $twitter_accounts = Account::where('social_media', '=', 'twitter')->get();
         $facebook_accounts = Account::where('social_media', '=', 'facebook')->get();
         $instagram_accounts = Account::where('social_media', '=', 'instagram')->get();
+        $googleplus_accounts = Account::where('social_media', '=', 'googleplus')->get();
         $message = Session::get('message');
         $params = [
-            'facebook_accounts' => $facebook_accounts, 
             'twitter_accounts' => $twitter_accounts, 
+            'facebook_accounts' => $facebook_accounts, 
             'instagram_accounts' => $instagram_accounts, 
+            'googleplus_accounts' => $googleplus_accounts, 
             'message' => $message
         ];
         return view('gui.index', $params);
@@ -54,6 +57,7 @@ class GuiController extends Controller {
         TwitterSM::checkAll();
         FacebookSM::checkAll();
         InstagramSM::checkAll();
+        GooglePlusSM::checkAll();
         return Redirect::to('gui');
     }
 
