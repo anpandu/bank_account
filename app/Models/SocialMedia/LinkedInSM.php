@@ -65,14 +65,14 @@ class LinkedInSM {
     		$linkedin_service = OAuth::consumer('Linkedin');
 			$linkedin_service->getStorage()->storeAccessToken($linkedin_service->service(), $token_interface);
 
-			$response = json_decode($linkedin_service->request('https://api.linkedin.com/v1/people/~?format=json'), true);
-			
-			if ($response==null||isset($response->error)) {
-				$a->active = false;
-			} else {
+			try {
+				$response = json_decode($linkedin_service->request('https://api.linkedin.com/v1/people/~?format=json'), true);
 				$data = json_decode($linkedin_service->request('https://api.linkedin.com/v1/people/~?format=json'), true);
 				$a->screen_name = $data['firstName'];
+			} catch (\Exception $e) {
+				$a->active = false;
 			}
+
 			$a->save();
 		}
 		return Redirect::to('gui');
