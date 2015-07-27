@@ -68,9 +68,10 @@ class LinkedInSM {
 			$linkedin_service->getStorage()->storeAccessToken($linkedin_service->service(), $token_interface);
 
 			try {
-				$response = json_decode($linkedin_service->request('https://api.linkedin.com/v1/people/~?format=json'), true);
 				$data = json_decode($linkedin_service->request('https://api.linkedin.com/v1/people/~?format=json'), true);
+        		$pic = json_decode($linkedin_service->request('https://api.linkedin.com/v1/people/~:(picture-url)?format=json'), true);
 				$a->screen_name = $data['firstName'];
+				$a->image = $pic['pictureUrl'];
 			} catch (\Exception $e) {
 				$a->active = false;
 			}
