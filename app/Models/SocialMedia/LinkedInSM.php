@@ -10,12 +10,12 @@ use App\Models\Account;
 use OAuth\OAuth2\Token\StdOAuth2Token;
 
 /**
-* GooglePlusSM adalah class penghubung social media untuk google+
+* LinkedInSM adalah class penghubung social media untuk Linked In
 *
 *
 *
 */
-class GooglePlusSM {
+class LinkedInSM {
 
 	/**
 	 * Mendapatkan Authorize URL
@@ -23,8 +23,8 @@ class GooglePlusSM {
 	 */
 	public static function getAuthorizeURL($callback_url)
 	{
-		$google_service = OAuth::consumer('Google');
-		$authorize_url = $google_service->getAuthorizationUri();
+		$linkedin_service = OAuth::consumer('Linkedin');
+		$authorize_url = $linkedin_service->getAuthorizationUri();
 		$queries = []; 
 		parse_str($authorize_url->getQuery(), $queries);
 		$queries['redirect_uri'] = $callback_url;
@@ -41,9 +41,9 @@ class GooglePlusSM {
 	public static function mirror($params)
 	{
 		$code = $params['code'];
-    	$google_service = OAuth::consumer('Google');
-        $token = $google_service->requestAccessToken($code);
-        $result = json_decode($google_service->request('https://www.googleapis.com/oauth2/v1/userinfo'), true);
+    	$linkedin_service = OAuth::consumer('Linkedin');
+        $token = $linkedin_service->requestAccessToken($code);
+        $result = json_decode($linkedin_service->request('https://api.linkedin.com/v1/people/~?format=json'), true);
         $result['access_token'] = $token->getAccessToken();
 		return $result;
 	}
@@ -56,23 +56,22 @@ class GooglePlusSM {
 	*/
 	public static function checkAll()
 	{
-		$accounts = Account::where('social_media', '=', 'googleplus')->get();
+		$accounts = Account::where('social_media', '=', 'linkedin')->get();
 		foreach ($accounts as $account) {
 			$a = Account::where('user_id', '=', $account->user_id)->get()->first();
 			$token = $a->access_token;
 			$token_interface = new StdOAuth2Token($token);
 
-    		$google_service = OAuth::consumer('Google');
-			$google_service->getStorage()->storeAccessToken($google_service->service(), $token_interface);
-			
-			$response = json_decode(@file_get_contents('https://www.googleapis.com/oauth2/v1/tokeninfo?access_token='.$token));			
+    		$linkedin_service = OAuth::consumer('Linkedin');
+			$linkedin_service->getStorage()->storeAccessToken($linkedin_service->service(), $token_interface);
 
+			$response = json_decode($linkedin_service->request('https://api.linkedin.com/v1/people/~?format=json'), true);
+			
 			if ($response==null||isset($response->error)) {
 				$a->active = false;
 			} else {
-				$data = json_decode($google_service->request('https://www.googleapis.com/oauth2/v1/userinfo'));
-				$a->screen_name = $data->name;
-				$a->image = $data->picture;
+				$data = json_decode($linkedin_service->request('https://api.linkedin.com/v1/people/~?format=json'), true);
+				$a->screen_name = $data['firstName'];
 			}
 			$a->save();
 		}

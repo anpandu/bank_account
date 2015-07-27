@@ -187,6 +187,49 @@
 				</div>
 			@endif
 
+			@if (count($linkedin_accounts)>0)
+				<div class="panel panel-default">
+					<div class="panel-heading">LinkedIn Accounts ({{count($linkedin_accounts)}} items)</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-condensed table-hover table-bordered">
+								<tr>
+									<td>ID</td>
+									<td>Use Count</td>
+									<td>Active</td>
+									<td>Image</td>
+									<td>Name</td>
+									<td>Access Token</td>
+									<td></td>
+								</tr>
+								@foreach ($linkedin_accounts as $account)
+									<tr>
+										<td>{{$account->id}}</td>
+										<td>{{$account->use_count}}</td>
+										<td><span class="glyphicon glyphicon-{{($account->active) ? 'ok' : 'remove'}}" aria-hidden="true"></span></td>
+										<td>
+											<a target="_blank" href="{{$account->image}}"><img style="max-height:48px" src="{{$account->image}}"/></a></td>
+										<td>
+											<a target="_blank" href="https://www.linkedin.com/profile/view?id={{$account->user_id}}">{{$account->screen_name}}</a>
+										</td>
+										<td>{{$account->access_token}}</td>
+										<td>
+											<form method="POST" action="{{url('/account').'/'.$account->id}}">
+												<input name="_method" type="hidden" value="DELETE">
+												<input name="_redirect" type="hidden" class="form-control" id="" placeholder="" value="gui">
+												<a href="#" onclick="$(this).closest('form').submit()">
+													<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+												</a>
+											</form>
+										</td>
+									</tr>
+								@endforeach 
+							</table>
+						</div>
+					</div>
+				</div>
+			@endif
+
 			<div class="panel panel-default">
 				<div class="panel-heading">Contoh Penggunaan</div>
 				<div class="panel-body">

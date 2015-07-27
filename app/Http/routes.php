@@ -46,5 +46,10 @@ Route::group(['prefix' => 'auth_googleplus'], function(){
 	Route::get('/mirror', 'GooglePlusAuthController@mirror');
 });
 
+Route::group(['prefix' => 'auth_linkedin'], function(){
+	Route::get('/connect', 'LinkedInAuthController@connect');
+	Route::get('/mirror', 'LinkedInAuthController@mirror');
+});
+
 Route::get('/oauth2callback', function(){redirect()->route('auth_googleplus/mirror');});
 
