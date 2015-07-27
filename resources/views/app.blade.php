@@ -54,6 +54,10 @@
 					<li><a href="{{ url('/auth_googleplus/connect') . '?url=' . url('auth_googleplus/mirror') }}">Connect Google+</a></li>
 				</ul>
 
+				<ul class="nav navbar-nav">
+					<li><a href="{{ url('/auth_linkedin/connect') . '?url=' . url('auth_linkedin/mirror') }}">Connect LinkedIn</a></li>
+				</ul>
+
 				<!-- <ul class="nav navbar-nav">
 					<li><a href="{{ url('/gui/create') }}">Manual Create Account</a></li>
 				</ul> -->
