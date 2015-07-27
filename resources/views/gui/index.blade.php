@@ -212,7 +212,9 @@
 										<td>
 											<a target="_blank" href="https://www.linkedin.com/profile/view?id={{$account->user_id}}">{{$account->screen_name}}</a>
 										</td>
-										<td>{{$account->access_token}}</td>
+										<td>
+											<textarea cols="70" rows="3">{{$account->access_token}}</textarea>
+										</td>
 										<td>
 											<form method="POST" action="{{url('/account').'/'.$account->id}}">
 												<input name="_method" type="hidden" value="DELETE">

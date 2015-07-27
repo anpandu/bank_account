@@ -44,7 +44,9 @@ class LinkedInSM {
     	$linkedin_service = OAuth::consumer('Linkedin');
         $token = $linkedin_service->requestAccessToken($code);
         $result = json_decode($linkedin_service->request('https://api.linkedin.com/v1/people/~?format=json'), true);
+        $pic = json_decode($linkedin_service->request('https://api.linkedin.com/v1/people/~:(picture-url)?format=json'), true);
         $result['access_token'] = $token->getAccessToken();
+        $result['pic'] = $pic['pictureUrl'];
 		return $result;
 	}
 

@@ -41,7 +41,7 @@ class LinkedInAuthController extends Controller {
         
         $params['user_id'] = $access_token['id'];
         $params['screen_name'] = $access_token['firstName'];
-        $params['image'] = 'https://pbs.twimg.com/profile_images/3005141692/dc8e1eb36b6cbd2b5726f63c50adf7f2.png';
+        $params['image'] = $access_token['pic'];
         $params['social_media'] = 'linkedin';
         $params['active'] = true;
         $params['consumer_key'] = Config::get('oauth-5-laravel.consumers')['Linkedin']['client_id'];
