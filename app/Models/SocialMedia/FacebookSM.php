@@ -54,8 +54,8 @@ class FacebookSM {
 			$access_token = $session->getAccessToken();
 			$long_access_token = $access_token->extend();
 			$user_id = $long_access_token->getInfo()->getId();
-			$name = json_decode(file_get_contents("https://graph.facebook.com/me?access_token=" .$long_access_token))->name;
-			$image = json_decode(file_get_contents("https://graph.facebook.com/me/picture?redirect=false&access_token=" .$long_access_token))->data->url;
+			$name = json_decode(@file_get_contents("https://graph.facebook.com/me?access_token=" .$long_access_token))->name;
+			$image = json_decode(@file_get_contents("https://graph.facebook.com/me/picture?redirect=false&access_token=" .$long_access_token))->data->url;
 			$result = [
 				'access_token' => $long_access_token,
 				'user_id' => $user_id,
@@ -78,12 +78,12 @@ class FacebookSM {
 		$accounts = Account::where('social_media', '=', 'facebook')->get();
 		foreach ($accounts as $account) {
 			$a = Account::where('user_id', '=', $account->user_id)->get()->first();
-			$response = json_decode(file_get_contents("https://graph.facebook.com/me?access_token=" .$account->access_token));
+			$response = json_decode(@file_get_contents("https://graph.facebook.com/me?access_token=" .$account->access_token));
 			if (isset($response->error)) {
 				$a->active = false;
 			} else {
-				$name = json_decode(file_get_contents("https://graph.facebook.com/me?access_token=" .$account->access_token))->name;
-				$image = json_decode(file_get_contents("https://graph.facebook.com/me/picture?redirect=false&access_token=" .$account->access_token))->data->url;
+				$name = json_decode(@file_get_contents("https://graph.facebook.com/me?access_token=" .$account->access_token))->name;
+				$image = json_decode(@file_get_contents("https://graph.facebook.com/me/picture?redirect=false&access_token=" .$account->access_token))->data->url;
 				$a->screen_name = $name;
 				$a->image = $image;
 			}
