@@ -79,7 +79,7 @@ class FacebookSM {
 		foreach ($accounts as $account) {
 			$a = Account::where('user_id', '=', $account->user_id)->get()->first();
 			$response = json_decode(@file_get_contents("https://graph.facebook.com/me?access_token=" .$account->access_token));
-			if (isset($response->error)) {
+			if ((!$response)||(isset($response->error))) {
 				$a->active = false;
 			} else {
 				$name = json_decode(@file_get_contents("https://graph.facebook.com/me?access_token=" .$account->access_token))->name;
