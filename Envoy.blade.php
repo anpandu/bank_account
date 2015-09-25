@@ -4,4 +4,6 @@
     cd /data/www/bankaccount/main
     ls -als storage/framework/sessions
     rm -rf storage/framework/sessions/*
+    ls -als storage/logs
+    rm -rf storage/logs/*
 @endtask
